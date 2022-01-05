@@ -17,9 +17,12 @@ scaler = load(open('scaler.pkl', 'rb'))
 #scaler.inverse_transform
 #scaler.transform
 
-TargetUVT = 90 #[%-1cm]
-WavelengthRange = np.linspace(0.190,0.500,311)
-TargetVector = [[wl, TargetUVT/100] for wl in WavelengthRange]
-PredictionT = model.predict(scaler.transform(pd.DataFrame(TargetVector)))
-plt.scatter(WavelengthRange, PredictionT,s=1)
-plt.show()
+def getWaterVector(TargetUVT=90):
+    # TargetUVT is in[%-1cm]
+    WavelengthRange = np.linspace(0.190,0.500,311)
+    TargetVector = [[wl, TargetUVT/100] for wl in WavelengthRange]
+    PredictionT = model.predict(scaler.transform(pd.DataFrame(TargetVector)))
+
+    plt.scatter(WavelengthRange, PredictionT,s=1)
+    plt.savefig('UVTvsWavelength.png', bbox_inches='tight')
+    #plt.show()
