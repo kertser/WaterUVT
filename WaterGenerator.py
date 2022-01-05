@@ -90,4 +90,8 @@ PredictionT = model.predict(scaler.transform(pd.DataFrame(TargetVector)))
 plt.scatter(WavelengthRange, PredictionT,s=1)
 plt.show()
 
+#%% Save model and scaler
+from pickle import dump
+model.save('WaterUVT.h5')
+dump(scaler, open('scaler.pkl', 'wb'))
 
