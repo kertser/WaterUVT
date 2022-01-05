@@ -1,26 +1,21 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body, Request
+from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-import WaterCalculator
+#import WaterCalculator
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="htmldirectory")
 
 @app.get("/", response_class = HTMLResponse)
-async def main():
-    WaterUVT = 55#[%-1cm]
-    WaterCalculator.getWaterVector(WaterUVT)
-    content = head_html + """
-    <marquee width="525" behavior="alternate"><h1 style="color:red;font-family:Arial">Please set your Water UVT254</h1></marquee>
-    <br>
-    <img src="static/UVTvsWavelength.png" alt="UVT of the Water">
-    """
-    return content
+def main(request: Request):
+    waterUVT = 25
+    return templates.TemplateResponse("home.html", {"request": request, "waterUVT": waterUVT})
 
-head_html = """
-<head>
-    <meta name = "viewport" content = "width=device-width, initial-scale=1"/>
-</head>
-<body style="background-color:powderblue;">
-<center>
-"""
+    #WaterUVT = 55#[%-1cm]
+    #WaterCalculator.getWaterVector(WaterUVT)
+
+
+
