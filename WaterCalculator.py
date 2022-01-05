@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def getWaterVector(TargetUVT=90, OutputToCSV = True):
+def getWaterVector(TargetUVT=90, OutputToCSV = False):
 # Calculate the TargetUVT is in[%-1cm]
     WavelengthRange = np.linspace(0.190,0.500,311)
 
@@ -22,7 +22,7 @@ def getWaterVector(TargetUVT=90, OutputToCSV = True):
     # Make the plot
     fig = plt.figure()
     ax1 = fig.add_subplot()
-    ax1.set_title('UVT of selected water types')
+    ax1.set_title('UVT of selected water type')
     ax1.set_xlabel('wavelength [nm]')
     ax1.set_ylabel('UVT[%-1cm]')
     ax1.grid(color='g', linestyle='--', linewidth=0.5)

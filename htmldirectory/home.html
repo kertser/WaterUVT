@@ -9,6 +9,10 @@
 <form id="UVT value" method="post" action="/">
     <input type="number" name="UVT"/>
     <input type="submit" value="Set UVT value at 254[%-1cm} to get transmittance chart">
+    <table>
+        <td><input type="checkbox" checked value="save to CSV" name="Save to CSV"></td>
+        <td><h4>Export to CSV</h4></td>
+    </table>
 </form>
 <h2>Water UVT = {{ waterUVT }}[%-1cm]</h2>
 <img src="../static/UVTvsWavelength.png">
