@@ -5,7 +5,11 @@
     <title>Water-UVT</title>
 </head>
 <body>
-<h1>Water-UVT</h1>
+<h1>Water-UVT Transmittance Chart</h1>
+<form id="UVT value" method="post" action="/">
+    <input type="number" name="UVT"/>
+    <input type="submit" value="Set UVT value at 254[%-1cm} to get transmittance chart">
+</form>
 <h2>Water UVT = {{ waterUVT }}[%-1cm]</h2>
 <img src="../static/UVTvsWavelength.png">
 </body>
