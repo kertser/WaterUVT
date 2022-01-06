@@ -9,3 +9,4 @@ fastapi
 unicorn
 pydantic
 python-multipart
+gunicorn
