@@ -17,7 +17,7 @@ def getWaterVector(TargetUVT=90, OutputToCSV = False):
 
     # Calculate the Prediction
     TargetVector = [[wl, TargetUVT/100] for wl in WavelengthRange]
-    PredictionT = model.predict(scaler.transform(pd.DataFrame(TargetVector)))
+    PredictionT = model.predict(scaler.transform(DataFrame(TargetVector)))
 
     # Make the plot
     fig = plt.figure()
@@ -33,7 +33,7 @@ def getWaterVector(TargetUVT=90, OutputToCSV = False):
 
     # Output the model into CSV file
     if (OutputToCSV==True):
-        Output = pd.DataFrame()
+        Output = DataFrame()
         Output['Wavelength'] = DataFrame(WavelengthRange)
         Output['UVT'] = DataFrame(PredictionT)
         filename = 'UVT_output.csv'
