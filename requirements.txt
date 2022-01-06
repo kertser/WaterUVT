@@ -6,7 +6,7 @@ matplotlib
 # sklearn
 # scikit-learn
 fastapi
-# unicorn
+uvicorn
 pydantic
 python-multipart
 gunicorn
