@@ -34,7 +34,8 @@ def getWaterVector(TargetUVT=90, OutputToCSV = False):
         Output = pd.DataFrame()
         Output['Wavelength'] = pd.DataFrame(WavelengthRange)
         Output['UVT'] = pd.DataFrame(PredictionT)
-        filename = 'UVT='+str(TargetUVT)+'[%-1cm].csv'
+        #filename = 'UVT='+str(TargetUVT)+'[%-1cm].csv'
+        filename = 'UVT_output.csv'
         Output.to_csv(filename, index=False)
 
 #%% Main script
