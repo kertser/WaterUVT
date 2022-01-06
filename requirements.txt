@@ -1,9 +1,10 @@
 numpy
-tensorflow
+keras
+# tensorflow
 pandas
 matplotlib
-sklearn
-scikit-learn
+# sklearn
+# scikit-learn
 fastapi
 unicorn
 pydantic

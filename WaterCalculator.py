@@ -6,14 +6,14 @@ Created on Wed Jan  5 09:48:57 2022
 """
 
 from pickle import load
-from tensorflow import keras
-from numpy import linspace as linspace
+#from tensorflow import keras
+from keras.models import load_model
+from numpy import linspace as Linspace
 from pandas import DataFrame as DataFrame
 import matplotlib.pyplot as plt
 
-def getWaterVector(TargetUVT=90, OutputToCSV = False):
-# Calculate the TargetUVT is in[%-1cm]
-    WavelengthRange = linspace(0.190,0.500,311)
+def getWaterVector(TargetUVT=90, OutputToCSV=False): # Calculate the TargetUVT is in[%-1cm]
+    WavelengthRange = Linspace(0.190, 0.500, 311)
 
     # Calculate the Prediction
     TargetVector = [[wl, TargetUVT/100] for wl in WavelengthRange]
@@ -42,7 +42,8 @@ def getWaterVector(TargetUVT=90, OutputToCSV = False):
 #%% Main script
 # Load the model and the Scaler
 
-model = keras.models.load_model('WaterUVT.h5')
+#model = keras.models.load_model('WaterUVT.h5')
+model = load_model('WaterUVT.h5')
 scaler = load(open('scaler.pkl', 'rb'))
 
 getWaterVector(90)
