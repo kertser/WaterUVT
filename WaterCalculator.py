@@ -7,13 +7,13 @@ Created on Wed Jan  5 09:48:57 2022
 
 from pickle import load
 from tensorflow import keras
-import numpy as np
-import pandas as pd
+from numpy import linspace as linspace
+from pandas import DataFrame as DataFrame
 import matplotlib.pyplot as plt
 
 def getWaterVector(TargetUVT=90, OutputToCSV = False):
 # Calculate the TargetUVT is in[%-1cm]
-    WavelengthRange = np.linspace(0.190,0.500,311)
+    WavelengthRange = linspace(0.190,0.500,311)
 
     # Calculate the Prediction
     TargetVector = [[wl, TargetUVT/100] for wl in WavelengthRange]
@@ -34,8 +34,8 @@ def getWaterVector(TargetUVT=90, OutputToCSV = False):
     # Output the model into CSV file
     if (OutputToCSV==True):
         Output = pd.DataFrame()
-        Output['Wavelength'] = pd.DataFrame(WavelengthRange)
-        Output['UVT'] = pd.DataFrame(PredictionT)
+        Output['Wavelength'] = DataFrame(WavelengthRange)
+        Output['UVT'] = DataFrame(PredictionT)
         filename = 'UVT_output.csv'
         Output.to_csv(filename, index=False)
 
