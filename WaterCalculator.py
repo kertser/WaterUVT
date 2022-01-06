@@ -27,6 +27,8 @@ def getWaterVector(TargetUVT=90, OutputToCSV = False):
     ax1.set_ylabel('UVT[%-1cm]')
     ax1.grid(color='g', linestyle='--', linewidth=0.5)
     ax1.scatter(WavelengthRange, PredictionT,s=1)
+    ax1.text(0.38, 0.15, 'UVT254 = '+str(TargetUVT)+'[%-1cm]', style='italic',
+        bbox={'facecolor': 'green', 'alpha': 0.5, 'pad': 10})
     fig.savefig('static/UVTvsWavelength.png', bbox_inches='tight')
 
     # Output the model into CSV file
@@ -34,7 +36,6 @@ def getWaterVector(TargetUVT=90, OutputToCSV = False):
         Output = pd.DataFrame()
         Output['Wavelength'] = pd.DataFrame(WavelengthRange)
         Output['UVT'] = pd.DataFrame(PredictionT)
-        #filename = 'UVT='+str(TargetUVT)+'[%-1cm].csv'
         filename = 'UVT_output.csv'
         Output.to_csv(filename, index=False)
 
