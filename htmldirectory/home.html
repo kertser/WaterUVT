@@ -9,12 +9,10 @@
 <form method="post" action="/">
     <input type="number" name="UVT"/>
     <input type="submit" value="Set UVT value at 254[%-1cm} to get transmittance chart">
-    <table>
-        <tr><td><input type="checkbox" id="Save_to_CSV" name="Save_to_CSV"></td>
-        <td><h4>Export to CSV</h4></td></tr>
-    </table>
+    <h2>Water UVT = {{ waterUVT }}[%-1cm]</h2>
+    <img src="../static/UVTvsWavelength.png">
+    <br>
+    <input type="submit" value="Save to CSV file" name="Save_to_CSV">
 </form>
-<h2>Water UVT = {{ waterUVT }}[%-1cm]</h2>
-<img src="../static/UVTvsWavelength.png">
 </body>
 </html>
