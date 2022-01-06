@@ -1,6 +1,6 @@
 numpy
 # keras
-tensorflow
+tensorflow-cpu
 pandas
 matplotlib
 # sklearn
