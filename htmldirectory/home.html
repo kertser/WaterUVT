@@ -5,11 +5,12 @@
     <title>Water-UVT</title>
 </head>
 <body>
-<h1>Water-UVT Transmittance Chart</h1>
+<h1>Water-UVT Transmittance Chart, Atlantium Technologies</h1>
 <form method="post" action="/">
     <input type="number" name="UVT" value={{waterUVT}} min=20 max=100>
     <input type="submit" value="Set UVT value at 254[%-1cm} to get transmittance chart">
     <h2>Water UVT = {{ waterUVT }}[%-1cm]</h2>
+    <h3><i>Target Lignin Sulfonate Concentration = {{ Lignin }}[mg/L]</i></h3>
     <!-- <iframe src="/aaa.html" width="40%"  height="500" style="border:none;"></iframe> -->
     <img src="../static/UVTvsWavelength.png">
     <br>
