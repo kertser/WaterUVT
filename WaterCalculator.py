@@ -12,7 +12,7 @@ from pandas import DataFrame as DataFrame
 import matplotlib.pyplot as plt
 
 def getWaterVector(TargetUVT=90, OutputToCSV=False): # Calculate the TargetUVT is in[%-1cm]
-    WavelengthRange = Linspace(0.190, 0.500, 311)
+    WavelengthRange = Linspace(0.190, 0.600, 411)
 
     # Calculate the Prediction
     TargetVector = [[wl, TargetUVT/100] for wl in WavelengthRange]
@@ -26,8 +26,9 @@ def getWaterVector(TargetUVT=90, OutputToCSV=False): # Calculate the TargetUVT i
     ax1.set_ylabel('UVT[%-1cm]')
     ax1.grid(color='g', linestyle='--', linewidth=0.5)
     ax1.scatter(WavelengthRange, PredictionT,s=1)
-    ax1.text(0.38, 0.15, 'UVT254 = '+str(TargetUVT)+'[%-1cm]', style='italic',
-        bbox={'facecolor': 'green', 'alpha': 0.5, 'pad': 10})
+
+    ax1.annotate('UVT254 = '+str(TargetUVT)+'[%-1cm]', xy=(1, 0), xycoords='axes fraction', style='italic', fontsize=12,
+                horizontalalignment='right', verticalalignment='bottom',bbox={'facecolor': 'green', 'alpha': 0.5, 'pad': 1})
     fig.savefig('static/UVTvsWavelength.png', bbox_inches='tight')
 
     # Output the model into CSV file

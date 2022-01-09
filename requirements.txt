@@ -3,10 +3,11 @@ numpy
 tensorflow-cpu
 pandas
 matplotlib
-# sklearn
+sklearn
 # scikit-learn
 fastapi
 uvicorn
 pydantic
 python-multipart
 gunicorn
+Jinja2
