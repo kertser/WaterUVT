@@ -3,7 +3,7 @@ numpy
 tensorflow-cpu
 pandas
 matplotlib
-# sklearn
+sklearn
 # scikit-learn
 fastapi
 uvicorn
