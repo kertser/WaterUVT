@@ -25,6 +25,7 @@ async def main(request: Request, waterUVT=defaultUVT):
     return templates.TemplateResponse("home.html", {"request": request, "waterUVT": waterUVT, "Lignin": Lignin})
 
 
+# RUN: uvicorn main:app --reload
 @app.post("/")
 async def handle_UVT(request: Request, UVT: int = Form(defaultUVT), Save_to_CSV: str = Form('')):
     WaterCalculator.getWaterVector(UVT, True)
