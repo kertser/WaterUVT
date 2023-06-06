@@ -5,6 +5,11 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import WaterCalculator
 
+import uvicorn
+import warnings
+
+warnings.filterwarnings("ignore") #Get rid of warnings
+
 A_Lignin = 0.0072
 B_Lignin = -2.1
 C_Lignin = 138
@@ -34,3 +39,8 @@ async def handle_UVT(request: Request, UVT: int = Form(defaultUVT), Save_to_CSV:
         return FileResponse(path=filename, filename=filename, media_type='text/csv')
     else:
         return templates.TemplateResponse('home.html',  {"request": request, "waterUVT": UVT, "Lignin": Lignin, "Save_to_CSV": Save_to_CSV})
+
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, log_level="info")
